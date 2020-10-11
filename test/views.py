@@ -8,9 +8,7 @@ import json
 
 @csrf_exempt
 def api(request):
-    if request.method == "POST":
-        # body_unicode = request.body.decode('utf-8')
-        # data = json.loads(body_unicode)
+    if request.method == "PUT":
         data = JSONParser().parse(request)
         serializer = ImageLinkSerializer(data=data)
         if serializer.is_valid():
