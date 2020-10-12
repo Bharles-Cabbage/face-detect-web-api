@@ -16,7 +16,7 @@ def api(request):
         if serializer.is_valid():
 
             data = serializer.data
-            pload = {'api_key': api_key, 'api_secret': api_secret, 'image_url': data['url'], 'return_attributes': 'gender,age'}
+            pload = {'api_key': api_key, 'api_secret': api_secret, 'image_url': data['image_url'], 'return_attributes': 'gender,age'}
             r = requests.post('https://api-us.faceplusplus.com/facepp/v3/detect', data=pload)
                         
             return JsonResponse(r.json(), status=200)
