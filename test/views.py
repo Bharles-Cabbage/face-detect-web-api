@@ -5,8 +5,8 @@ from django.http import HttpResponse, JsonResponse
 from .serializer import ImageLinkSerializer
 import requests
 
-api_key = 'rbwdAiYs2GrgTwmmKywElHeZzvZGe84c'
-api_secret = 'x6NGRRKuk-Zci1eezK8rGGESSaMjpExm'
+api_key = '9jOgLRpjTeROSeGfVFmjSNTH4Aj9cE81'
+api_secret = 'U1Ctbr3CijFS5NfLFJxYX0cRym0RF7m6'
 @csrf_exempt
 def api(request):
     if request.method == "POST":
