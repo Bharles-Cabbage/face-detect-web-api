@@ -1,1 +1,1 @@
-web: gunicorn ProcessImage.wsgi
+web: gunicorn --keep-alive 0 ProcessImage.wsgi
