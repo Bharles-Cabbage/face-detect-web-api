@@ -1,4 +1,4 @@
 from rest_framework import serializers
 
 class ImageLinkSerializer(serializers.Serializer):
-    data = serializers.CharField()
+    image_url = serializers.CharField()
