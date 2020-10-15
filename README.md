@@ -1,6 +1,6 @@
 ## Face Detect API
 
-This project uses [Face_Recognition](https://github.com/ageitgey/face_recognition) API for all the image processing.
+This project uses [Face_Recognition](https://github.com/ageitgey/face_recognitiona) API for all the image processing.
 
 - - -
 #### Start server
