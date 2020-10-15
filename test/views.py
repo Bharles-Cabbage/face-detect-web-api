@@ -1,12 +1,15 @@
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view,parser_classes
 from rest_framework.parsers import JSONParser
+
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from .serializer import ImageLinkSerializer
+
 import requests
 import face_recognition
 import PIL.Image
 import numpy as np
+
+from .serializer import ImageLinkSerializer
 
 
 @csrf_exempt
@@ -14,13 +17,13 @@ import numpy as np
 def api(request):
     # Declare file variable 
     file = None
+    data = JSONParser().parse(request)
 
     #check if image was uploaded
-    if 'file' in request.data:
-        file = request.data['file']
+    if 'file' in list(request.data):
+        file = data['file']
 
     else:    
-        data = JSONParser().parse(request)
         serializer = ImageLinkSerializer(data=data)
 
         if serializer.is_valid():
@@ -38,6 +41,3 @@ def api(request):
     response = {'face_locations': face_locations}
 
     return JsonResponse(response, status=200)
-
-
-    # return JsonResponse({'err': 'Bad Request. Only accepting POST requests.'}, status=400)
