@@ -9,28 +9,32 @@ import face_recognition
 import PIL.Image
 import numpy as np
 
-from .serializer import ImageLinkSerializer
+from .serializer import ImageLinkSerializer, ImageUploadSerializer
 
 
 @csrf_exempt
-@api_view(['POST'])
+@api_view(['POST', 'PUT'])
 def api(request):
     # Declare file variable 
     file = None
-    data = JSONParser().parse(request)
+    
+    if request.method == "POST":
+        # Handle Image Uploaded
+        serializer = ImageUploadSerializer(request.data, many=True)
+        return JsonResponse(serializer.data['ext'], status=400)
 
-    #check if image was uploaded
-    if 'file' in list(request.data):
-        file = data['file']
+    elif request.method == "PUT":
 
-    else:    
-        serializer = ImageLinkSerializer(data=data)
+        serializer = ImageLinkSerializer(data=request.data)
 
         if serializer.is_valid():
             data = serializer.data
             file = requests.get(data['image_url'], stream=True).raw     # Get image from URL
+            # return JsonResponse(data, status=400)
         else:
             return JsonResponse(serializer.errors, status=400)
+
+
 
     # Convert Image file into Numpy Array
     im = PIL.Image.open(file)
