@@ -25,7 +25,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = os.environ['PI_SECRET']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+is os.environ['DEBUG'] == 'True':
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = []
 
