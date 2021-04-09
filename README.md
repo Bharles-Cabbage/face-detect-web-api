@@ -16,7 +16,7 @@ OR
 #### Endpoints
 |   Path    |   Method  |              Purpose                  |                             Values                                  | 
 |   ----    |   ------  |              -------                  |                             ------                                  |
-| /imageurl |   POST    |   Use image from a remote location    |   URL (eg. http://https://git.heroku.com/face-detect-webapi.git)    |
+| /imageurl |   POST    |   Use image from a remote location    |   URL (eg. https://www.dmarge.com/wp-content/uploads/2019/05/keanu-ysl-suit.jpg)    |
 | /image    |   POST    |   Upload image from local storage     |   image (i.e \*.jpg, \*.png, \*.jpeg, etc.)                         |
 
 Requests can be sent in either JSON or form formats.
