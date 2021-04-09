@@ -9,7 +9,7 @@ import numpy as np
 
 
 @csrf_exempt
-def api(request):
+def imageUrl(request):
     if request.method == "POST":
         data = JSONParser().parse(request)
         serializer = ImageLinkSerializer(data=data)
@@ -30,3 +30,21 @@ def api(request):
         return JsonResponse(serializer.errors, status=400)
 
     return JsonResponse({'err': 'Bad Request. Only accepting POST requests.'}, status=400)
+
+@csrf_exempt
+def image(request):
+    if request.method == "POST":
+        files = request.FILES
+        image = files.get('image')
+
+        image = PIL.Image.open(image)
+        image = np.array(image)
+        
+        face_locations = face_recognition.face_locations(image)
+        response = {'face_locations': face_locations}
+        # response = {'image': image}
+
+        return JsonResponse(response, status=200)
+
+    return JsonResponse({'err': 'Bad Request. Only accepting POST requests.'}, status=400)
+

@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from test.views import api
+from test.views import imageUrl, image
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('processimage', api, name="api")
+    path('imageurl/', imageUrl, name="api"),
+    path('image/', image, name='image'),
 ]
