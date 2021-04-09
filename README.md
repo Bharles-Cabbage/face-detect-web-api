@@ -2,16 +2,14 @@
 
 This project uses [Face_Recognition](https://github.com/ageitgey/face_recognition) API for all the image processing.
 
-
 - - -
-#### Start server
-    _Generate a Django `Secret` and store it in an environment variable `PI_SECRET`._
 
+#### Start server
 `python manage.py runserver`
 OR
 `gunicorn ProcessImage.wsgi`
 
-
+*Note: This app requires you to store a secret key in `PI_SECRET` environmental variable.
 - - -
 #### Endpoints
 |   Path    |   Method  |              Purpose                  |                             Values                                  | 
