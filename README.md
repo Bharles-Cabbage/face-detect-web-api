@@ -32,3 +32,4 @@ Requests can be sent in either JSON or form formats.
 ###### Todo:
 * [x] Detect face via image's url
 * [x] Detect face from uploded image
+* [ ] Live video stream face detection
