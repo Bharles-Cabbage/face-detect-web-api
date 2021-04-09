@@ -30,4 +30,5 @@ Requests can be sent in either JSON or form formats.
 
 - - -
 ###### Todo:
-* [] Send Image Links and send  
+* [x] Detect face via image's url
+* [x] Detect face from uploded image
