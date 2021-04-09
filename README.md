@@ -2,19 +2,24 @@
 
 This project uses [Face_Recognition](https://github.com/ageitgey/face_recognition) API for all the image processing.
 
+
 - - -
 #### Start server
-_Generate a `secret` and store it in an environment variable `PI_SECRECT`._
+    _Generate a Django `Secret` and store it in an environment variable `PI_SECRET`._
 
 `python manage.py runserver`
 OR
 `gunicorn ProcessImage.wsgi`
 
+
 - - -
 #### Endpoints
-`http://your_domain/processimage`
+|   Path    |   Method  |              Purpose                  |                             Values                                  | 
+|   ----    |   ------  |              -------                  |                             ------                                  |
+| /imageurl |   POST    |   Use image from a remote location    |   URL (eg. http://https://git.heroku.com/face-detect-webapi.git)    |
+| /image    |   POST    |   Upload image from local storage     |   image (i.e \*.jpg, \*.png, \*.jpeg, etc.)                         |
 
-Send JSON with the format `{'image_url': 'https://example.foo/image.jpg'}` as a `POST` request on `/processimage`.
+Requests can be sent in either JSON or form formats.
 
 #### Return Values
 |      **Key**    |     **Type**      |    **Explanation/Solution** |
@@ -25,4 +30,6 @@ Send JSON with the format `{'image_url': 'https://example.foo/image.jpg'}` as a 
 | Server Error(500)| HTTP Response/String | Check if image URL being sent is valid. Try using other images' URL to test. Contact if still not resolved. |
  
 
-
+- - -
+###### Todo:
+* [] Send Image Links and send  
