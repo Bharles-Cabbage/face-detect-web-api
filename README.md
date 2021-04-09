@@ -9,7 +9,7 @@ This project uses [Face_Recognition](https://github.com/ageitgey/face_recognitio
 OR
 `gunicorn ProcessImage.wsgi`
 
-*Note: This app requires you to store a secret key in `PI_SECRET` environmental variable.
+*Note: This app requires you to store a secret key in `PI_SECRET` environmental variable.*
 - - -
 #### Endpoints
 |   Path    |   Method  |              Purpose                  |                             Values                                  | 
